@@ -4,14 +4,19 @@
         <title>Calculator</title>
         <script>
             function empty(){
-                document.getElementById('in').value = "";
+                document.getElementById('in').value = "0";
             }
             function backspace(){
                 var input = document.getElementById("in").value;
                 document.getElementById("in").value = input.substring(0,input.length-1);
             }
             function insert(s){
+				if(document.getElementById("in").value=="0"){
+				document.getElementById("in").value = s;
+				}
+				else {
                 document.getElementById("in").value = document.getElementById("in").value + s;
+				}
             }
             function calculate(){
                 document.getElementById("in").value = eval(document.getElementById("in").value);
@@ -94,5 +99,6 @@
                 </tr>
             </table>
         </div>
+		<script>empty();</script>
     </body>
 </html>
